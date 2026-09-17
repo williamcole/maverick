@@ -1,0 +1,13 @@
+{
+  "name": "maverick",
+  "version": "1.26.0",
+  "description": "Build tooling for Maverick theme custom blocks",
+  "scripts": {
+    "build": "wp-scripts build --config webpack.config.js",
+    "start": "wp-scripts start --config webpack.config.js",
+    "lint:js": "wp-scripts lint-js"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  }
+}

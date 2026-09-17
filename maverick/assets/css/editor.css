@@ -1,0 +1,44 @@
+/* Maverick editor styles — mirrors frontend type treatment */
+
+.editor-styles-wrapper {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1a1a1a;
+  background: #fafaf7;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5 {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #13294B;
+  letter-spacing: -0.035em;
+}
+
+.editor-styles-wrapper em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+}
+
+/* ─────── Hero block editor styles ─────── */
+/* Override the global dark heading color inside the hero so text
+   is visible against the dark navy background in the editor. */
+.editor-styles-wrapper .maverick-hero h1,
+.editor-styles-wrapper .maverick-hero .mhero-heading {
+  color: #ffffff !important;
+}
+.editor-styles-wrapper .maverick-hero .mhero-heading em {
+  color: #ffffff;
+}
+.editor-styles-wrapper .maverick-hero .mhero-eyebrow {
+  color: #BA912E !important;
+}
+.editor-styles-wrapper .maverick-hero .mhero-sub {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+/* RichText placeholder text */
+.editor-styles-wrapper .maverick-hero .block-editor-rich-text__editable:empty::before {
+  color: rgba(255, 255, 255, 0.4) !important;
+}

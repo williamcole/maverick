@@ -1,0 +1,346 @@
+/* ─────── Font smoothing ─────── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────── Italic / em — serif switch ─────── */
+em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+}
+
+/* ─────── Sticky header ─────── */
+/* Target the template-part wrapper, not the inner group —
+   sticky on the inner group only sticks to its same-height parent. */
+header.wp-block-template-part {
+  position: sticky;
+  top: var(--wp-admin--admin-bar--height, 0px);
+  z-index: 100;
+}
+/* Scroll-driven shadow reveal — CSS-only, no JS. Progresses the shadow
+   in over the first 10px of scroll, matching the old JS threshold.
+   Unsupported browsers (older Firefox) simply skip the animation and
+   show no shadow — a harmless no-op, not a broken state. */
+@keyframes maverick-header-shadow {
+  from { box-shadow: 0 1px 0 rgba(36, 58, 94, 0), 0 4px 24px rgba(10, 20, 41, 0); }
+  to   { box-shadow: 0 1px 0 rgba(36, 58, 94, 0.6), 0 4px 24px rgba(10, 20, 41, 0.18); }
+}
+@supports (animation-timeline: scroll()) {
+  header.wp-block-template-part .maverick-header {
+    animation: maverick-header-shadow linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 10px;
+    animation-duration: 1ms; /* required by Firefox; ignored by others */
+  }
+}
+
+/* ─────── Navigation link hover/active state ─────── */
+.maverick-header .wp-block-navigation-item a {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.maverick-header .wp-block-navigation-item a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: #BA912E;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.maverick-header .wp-block-navigation-item a:hover,
+.maverick-header .wp-block-navigation-item.current-menu-item a {
+  color: #BA912E !important;
+}
+.maverick-header .wp-block-navigation-item a:hover::after,
+.maverick-header .wp-block-navigation-item.current-menu-item a::after {
+  transform: scaleX(1);
+}
+
+/* ─────── Social links ─────── */
+.maverick-social-links .wp-block-social-link {
+  border-radius: 6px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.maverick-social-links .wp-block-social-link:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+/* ─────── Dark-background text color protection ─────── */
+/* WordPress's global body color (#1a1a1a) and elements.heading (navy)
+   cascade into navy sections. Force white text as the base; blocks
+   with explicit has-*-color classes override via higher specificity.
+   Note: custom blocks handle their own colors via !important in block CSS —
+   these rules only cover core blocks inside navy group sections. */
+.has-navy-background-color,
+.has-navy-deep-background-color {
+  color: rgba(255, 255, 255, 0.82);
+}
+.has-navy-background-color .wp-block-heading,
+.has-navy-deep-background-color .wp-block-heading {
+  color: #ffffff;
+}
+.has-navy-background-color .has-gold-color,
+.has-navy-deep-background-color .has-gold-color {
+  color: var(--wp--preset--color--gold) !important;
+}
+.has-navy-background-color .has-white-color,
+.has-navy-deep-background-color .has-white-color {
+  color: #ffffff !important;
+}
+.has-navy-background-color .has-navy-color,
+.has-navy-deep-background-color .has-navy-color {
+  color: var(--wp--preset--color--navy) !important;
+}
+
+/* ─────── Heading font size enforcement ─────── */
+/* Fallback in case WordPress's global styles cache is stale.
+   Uses the correct hyphenated variable names WordPress actually generates
+   (size-h-2, not size-h2 — WordPress adds a hyphen before digits in slugs). */
+h1.wp-block-heading { font-size: var(--wp--preset--font-size--size-h-1, 56px); }
+h2.wp-block-heading { font-size: var(--wp--preset--font-size--size-h-2, 44px); }
+h3.wp-block-heading { font-size: var(--wp--preset--font-size--size-h-3, 32px); }
+
+/* ─────── Equal-height card columns ─────── */
+/* stretch: columns match tallest in row; flex-col: cards fill full height.
+   row-gap: vertical space between wrapped rows (blockGap is horizontal only).
+   !important is required to beat WordPress core's own
+   .wp-block-columns { align-items: normal !important } default — but
+   !important always wins over specificity regardless of selector, so a
+   plain !important rule here would also silently defeat a client's choice
+   to set Top/Center/Bottom vertical alignment via the Columns block's own
+   toolbar control. The :not() exclusions make this rule step aside
+   entirely once one of WordPress's own alignment classes is present. */
+.wp-block-columns:not(.are-vertically-aligned-top):not(.are-vertically-aligned-center):not(.are-vertically-aligned-bottom) {
+  align-items: stretch !important;
+}
+.wp-block-columns {
+  row-gap: 20px;
+}
+.wp-block-columns .wp-block-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─────── CTA section — flush top ─────── */
+/* Remove the post-content blockGap above the CTA so it sits flush
+   against whatever section precedes it regardless of background color. */
+.maverick-cta-section.wp-block-maverick-cta-section {
+  margin-block-start: 0 !important;
+}
+
+/* ─────── Header nav — earlier hamburger breakpoint ─────── */
+/* WordPress core hides the hamburger and shows the full nav list at
+   min-width:600px. That's too early for this header's link count + logo +
+   button — move the switch to a tablet breakpoint (900px) instead.
+   Scoped to .maverick-header only; footer nav keeps its own behavior. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .maverick-header .wp-block-navigation__responsive-container-open {
+    display: flex !important;
+  }
+  .maverick-header .wp-block-navigation__responsive-container:not(.is-menu-open) {
+    display: none !important;
+  }
+}
+
+/* ─────── Header — hide Get Started button when hamburger is active ─────── */
+/* The button is a sibling flex item to the nav, so it doesn't automatically
+   hide when the nav collapses. Hiding it below the tablet breakpoint leaves
+   only [logo | hamburger] as flex children, which the header's existing
+   justify-content:space-between naturally pushes to opposite ends —
+   keeping the hamburger right-aligned with no extra CSS needed. */
+@media (max-width: 899px) {
+  .maverick-header .wp-block-buttons {
+    display: none;
+  }
+}
+
+/* ─────── Mobile heading scale-down ─────── */
+/* H1/H2 font sizes are set as inline styles per-block (76px hero headlines,
+   32–48px section h2s), so !important is required to override them. */
+@media (max-width: 782px) {
+  h1.wp-block-heading { font-size: 40px !important; }
+  h2.wp-block-heading { font-size: 30px !important; }
+
+  /* Shorter sticky header on mobile: trim vertical padding and shrink the
+     logo so the fixed bar takes less of the small viewport. ~72px -> ~52px,
+     keeping the logo legible and the tap targets comfortable. */
+  .maverick-header {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .maverick-header .wp-block-site-logo,
+  .maverick-header .wp-block-site-logo a,
+  .maverick-header .wp-block-site-logo img {
+    width: 112px !important;
+    height: 56px !important;
+  }
+}
+@media (max-width: 480px) {
+  h1.wp-block-heading { font-size: 34px !important; }
+  h2.wp-block-heading { font-size: 26px !important; }
+}
+
+/* ─────── Footer columns stack on mobile ─────── */
+/* The footer's 4 columns include one with an explicit inline flex-basis:35%,
+   which can keep it from going full-width when WordPress's native ≤782px
+   column stacking kicks in. Force wrap + full-width so all four stack
+   cleanly on tablet and phone. Scoped to the footer element only. */
+@media (max-width: 782px) {
+  footer .wp-block-columns {
+    flex-wrap: wrap !important;
+  }
+  footer .wp-block-columns > .wp-block-column {
+    flex-basis: 100% !important;
+  }
+}
+
+/* ─────── Card grids (flexbox, reorderable) ─────── */
+/* Card blocks live as direct children of one flex group (className
+   "mv-card-grid") so the client can drag-reorder them freely and the layout
+   reflows automatically. 3-up desktop -> 2-up tablet -> 1-up mobile. Cards are
+   uniform width and wrap centered when a row isn't full (e.g. 4 cards => 3 + 1
+   centered at desktop, or 2 + 2 at tablet). The group's blockGap supplies the
+   20px gap. The > * selector covers every maverick card block equally, so one
+   rule serves service-card, principle-card, team-member, lead-card, etc. */
+.mv-card-grid {
+  align-items: stretch;   /* uniform card height per row */
+}
+.mv-card-grid > * {
+  /* basis = (100% - 2 gaps) / 3, so exactly three fit per row at desktop */
+  flex: 0 1 calc((100% - 40px) / 3);
+  max-width: calc((100% - 40px) / 3);
+}
+@media (max-width: 981px) {
+  .mv-card-grid > * {
+    flex-basis: calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+  }
+}
+@media (max-width: 600px) {
+  .mv-card-grid > * {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ─────── Header logo sizing ─────── */
+/* The logo is given an explicit 160x80 box with object-fit:contain. Capping the
+   height is what stops the header growing: without it, widening the logo scales
+   its height proportionally and the header tracks it. Vertical padding is
+   trimmed to 8px so the taller logo costs as little header height as possible. */
+.maverick-header {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+.maverick-header .wp-block-site-logo,
+.maverick-header .wp-block-site-logo a,
+.maverick-header .wp-block-site-logo img {
+  width: 160px !important;
+  height: 80px !important;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ─────── Hero (Cover) mobile padding parity ─────── */
+/* A full-width Cover puts alignfull on the wrapper and has-global-padding
+   on its inner-container. Because that inner-container is a NESTED
+   has-global-padding inside the alignfull cover, WordPress's own rule
+   zeroes its horizontal padding to avoid double-padding — which makes the
+   hero text run to the screen edge on tablet/mobile, while the section
+   groups below (which carry alignfull + has-global-padding on the SAME
+   div) keep their padding. Restore the root padding on the cover's inner
+   container so the hero content lines up with every section beneath it at
+   all viewport widths. */
+.wp-block-cover.alignfull > .wp-block-cover__inner-container.has-global-padding {
+  padding-left: var(--wp--style--root--padding-left);
+  padding-right: var(--wp--style--root--padding-right);
+}
+
+/* ─────── Paragraph max-width utility classes ─────── */
+/* Generated from converting invalid inline dimensions.maxWidth block
+   attributes (not a real core/paragraph support) to real, valid
+   className-based width caps. margin-left/right:0 guards against the
+   same is-layout-constrained auto-centering issue that affected the
+   hero text — some of these paragraphs (mw-360, mw-640) are direct
+   children of constrained groups and were being silently centered
+   instead of staying left-aligned like the rest of the site's body copy.
+   It's a no-op for the ones already inside flex/column layouts. */
+.mw-240 { max-width: 240px; margin-left: auto; }
+.mw-360 { max-width: 360px; margin-left: 0 !important; margin-right: 0 !important; }
+.mw-480 { max-width: 480px; }
+.mw-640 { max-width: 640px; margin-left: 0 !important; margin-right: 0 !important; }
+
+/* ─────── Basic Page (title + long-form text) ─────── */
+/* The seeded pages build their own full-bleed sections, so page.html is a bare
+   shell with no title or padding. This template is for plain text pages
+   (privacy, terms) and needs real prose rhythm. */
+.basic-page-body > * + * { margin-top: 1.1em; }
+.basic-page-body p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #4a4a4a;
+}
+.basic-page-body h2 {
+  font-size: 26px;
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+}
+.basic-page-body h3 {
+  font-size: 20px;
+  margin-top: 1.6em;
+  margin-bottom: 0.3em;
+}
+.basic-page-body h4 { margin-top: 1.4em; margin-bottom: 0.3em; }
+.basic-page-body ul,
+.basic-page-body ol {
+  padding-left: 1.3em;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #4a4a4a;
+}
+.basic-page-body li + li { margin-top: 0.4em; }
+.basic-page-body a { text-decoration: underline; }
+.basic-page-body strong, .basic-page-body b { font-weight: 700; }
+.basic-page-body blockquote {
+  margin: 1.6em 0;
+  padding-left: 20px;
+  border-left: 3px solid #BA912E;
+  color: #13294B;
+}
+.basic-page-body hr {
+  margin: 2.4em 0;
+  border: 0;
+  border-top: 1px solid #e5e3dc;
+}
+.basic-page-body table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.basic-page-body th, .basic-page-body td {
+  border: 1px solid #e5e3dc;
+  padding: 10px 12px;
+  text-align: left;
+}
+@media (max-width: 782px) {
+  .basic-page-body h2 { font-size: 22px; }
+}
+
+/* ─────── Footer links ─────── */
+/* Links inside footer text inherit the paragraph colour instead of the global
+   navy link colour, which is unreadable on the navy footer. Relying on inline
+   color:inherit is fragile — re-linking text in the editor strips it. */
+footer .wp-block-paragraph a,
+footer p a {
+  color: inherit;
+  text-decoration: none;
+}
+footer .wp-block-paragraph a:hover,
+footer p a:hover {
+  color: #BA912E !important;
+  text-decoration: underline;
+}
