@@ -1,0 +1,70 @@
+.maverick-team-member {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e3dc;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-team-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(19,41,75,0.10);
+}
+.mtm-avatar {
+  aspect-ratio: 1 / 1;
+  background-color: #13294B;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.mtm-avatar::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 90px;
+  height: 90px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='%23BA912E' opacity='0.18'><polygon points='120.9,182.4 116.5,195.8 153.7,168.8 146.6,163.7'/><polyline points='232.4,111.6 218.3,111.6 174,143.8 186.5,182.3 205.1,195.8 188.2,143.8'/><polygon points='160.8,59.6 153.7,81.4 163.5,111.6 177.7,111.6'/></svg>") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+.mtm-initial {
+  color: #ffffff !important;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 64px;
+  position: relative;
+  z-index: 1;
+}
+.mtm-info {
+  padding: 22px 22px 24px;
+}
+.mtm-name {
+  font-size: 17px;
+  color: #13294B;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.015em;
+}
+.mtm-title {
+  color: #BA912E !important;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.mtm-bio {
+  color: #4a4a4a;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}

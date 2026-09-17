@@ -1,0 +1,60 @@
+.maverick-testimonial-card {
+  height: 100%;
+  background: #1c3a66;
+  border: 1px solid #243a5e;
+  border-left: 3px solid #BA912E;
+  border-radius: 10px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.mtc-quote {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.45;
+  color: #fff !important;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.mtc-quote p { margin: 0; }
+.mtc-divider {
+  border: none;
+  border-top: 1px solid #243a5e;
+  margin: 20px 0;
+}
+.mtc-attribution {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mtc-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #BA912E;
+  color: #13294B;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mtc-meta { display: flex; flex-direction: column; gap: 2px; }
+.mtc-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff !important;
+  margin: 0;
+}
+.mtc-role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #BA912E !important;
+  margin: 0;
+}

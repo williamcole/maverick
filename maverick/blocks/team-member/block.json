@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/team-member",
+  "version": "1.0.0",
+  "title": "Team Member",
+  "category": "maverick",
+  "icon": "admin-users",
+  "description": "A leadership/team card with avatar (photo or initial), name, title, and bio.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "initial": {
+      "type": "string",
+      "default": "A"
+    },
+    "name": {
+      "type": "string",
+      "default": "Full Name"
+    },
+    "title": {
+      "type": "string",
+      "default": "Job Title"
+    },
+    "bio": {
+      "type": "string",
+      "default": "Short bio goes here."
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}
