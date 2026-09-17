@@ -1,0 +1,93 @@
+.maverick-hero {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  min-height: var(--mhero-min-height, 480px);
+  padding-top: 160px;
+  padding-bottom: 110px;
+  overflow: hidden;
+}
+
+/* Background colours */
+.maverick-hero--navy      { background-color: #13294B; }
+.maverick-hero--navy-deep { background-color: #0a1429; }
+
+/* Inner content constrained to contentSize, same as the rest of the site */
+.mhero-inner {
+  width: 100%;
+  max-width: 1320px; /* hardcoded fallback — CSS variable may not resolve if WP cache is stale */
+  max-width: var(--wp--style--global--content-size, 1320px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px; /* fallback */
+  padding-left: var(--wp--style--root--padding-left, 40px);
+  padding-right: 40px; /* fallback */
+  padding-right: var(--wp--style--root--padding-right, 40px);
+  box-sizing: border-box;
+}
+
+/* All hero text elements share the same left origin — no inherited
+   offsets from blockGap, paragraph margins, or layout containers */
+.mhero-eyebrow,
+.mhero-heading,
+.mhero-sub {
+  display: block;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
+}
+
+/* Eyebrow */
+.mhero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #BA912E !important;
+  margin: 0 0 22px;
+}
+
+/* Headline — !important needed to override WordPress's global
+   elements.heading color (navy) which otherwise beats class selectors */
+.mhero-heading {
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: #ffffff !important;
+  margin: 0 0 28px;
+  max-width: 800px;
+}
+.mhero-heading em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #ffffff !important;
+}
+
+/* Subheading */
+.mhero-sub {
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82) !important;
+  max-width: 620px;
+  margin: 0;
+}
+
+/* Editor preview — add a label so it's obvious what block this is */
+.wp-block[data-type="maverick/hero"] .mhero-eyebrow:empty::before {
+  content: 'Eyebrow label';
+  color: rgba(255,255,255,0.3) !important;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .maverick-hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .mhero-heading { font-size: 36px; }
+  .mhero-sub { font-size: 16px; }
+}

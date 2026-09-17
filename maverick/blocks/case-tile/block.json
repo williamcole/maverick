@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/case-tile",
+  "version": "1.0.0",
+  "title": "Case Tile",
+  "category": "maverick",
+  "icon": "portfolio",
+  "description": "A case study grid tile — image, tag, result stat, meta line, title, and excerpt. Attributes mirror a future case_study post type's fields for an easy upgrade path. Stack several inside a columns/group layout to build the Our Work grid.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "tagText": {
+      "type": "string",
+      "default": "Category"
+    },
+    "resultText": {
+      "type": "string",
+      "default": "Result"
+    },
+    "metaText": {
+      "type": "string",
+      "default": "Type · Year"
+    },
+    "title": {
+      "type": "string",
+      "default": "Case study title."
+    },
+    "excerpt": {
+      "type": "string",
+      "default": "Short summary."
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

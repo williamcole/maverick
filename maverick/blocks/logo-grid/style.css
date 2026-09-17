@@ -1,0 +1,49 @@
+.maverick-logo-grid {
+  background: #f5f1e8;
+  border: 1px solid #e5e3dc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.mlg-placeholder {
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  color: #8a8a8a;
+  font-size: 14px;
+  cursor: pointer;
+}
+.mlg-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  border-right: 1px solid #e5e3dc;
+  min-height: 80px;
+}
+.mlg-cell:last-child { border-right: none; }
+.mlg-cell img {
+  max-height: 36px;
+  max-width: 120px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+  filter: grayscale(100%);
+}
+.mlg-cell:hover img {
+  opacity: 1;
+  filter: none;
+}
+
+@media (max-width: 768px) {
+  .maverick-logo-grid {
+    flex-wrap: wrap;
+  }
+  .mlg-cell {
+    flex: 0 0 33.33%;
+    border-bottom: 1px solid #e5e3dc;
+  }
+}

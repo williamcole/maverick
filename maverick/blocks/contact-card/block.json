@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/contact-card",
+  "version": "1.0.0",
+  "title": "Contact Card",
+  "category": "maverick",
+  "icon": "phone",
+  "description": "A small sidebar card with an icon, heading, description, and a direct contact link (email or phone). Supports a dark variant.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "email",
+      "enum": [
+        "email",
+        "phone",
+        "star"
+      ]
+    },
+    "heading": {
+      "type": "string",
+      "default": "Get in touch"
+    },
+    "description": {
+      "type": "string",
+      "default": "Short description of this contact method."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "hello@example.com"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "mailto:hello@example.com"
+    },
+    "isDark": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

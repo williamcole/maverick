@@ -1,0 +1,51 @@
+.maverick-lead-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e3dc;
+  border-radius: 12px;
+  padding: 28px 28px 26px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-lead-card:hover {
+  transform: translateY(-3px);
+  border-color: #BA912E !important;
+}
+.mlc-av {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f5f1e8;
+  color: #BA912E !important;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e5e3dc;
+}
+.mlc-who h5.mlc-name {
+  font-size: 16px;
+  color: #13294B;
+  margin: 0 0 4px;
+  letter-spacing: -0.012em;
+}
+.mlc-who .mlc-title {
+  color: #BA912E !important;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.mlc-who p {
+  color: #4a4a4a;
+  font-size: 12.5px;
+  line-height: 1.6;
+  margin: 0;
+}

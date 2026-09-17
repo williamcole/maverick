@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/hero",
+  "version": "1.0.0",
+  "title": "Hero",
+  "category": "maverick",
+  "icon": "cover-image",
+  "description": "Full-width navy hero section with an eyebrow label, headline, and optional subheading. Use at the top of any page.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": "Page headline goes <em>here.</em>"
+    },
+    "subheading": {
+      "type": "string",
+      "default": ""
+    },
+    "background": {
+      "type": "string",
+      "default": "navy",
+      "enum": [
+        "navy",
+        "navy-deep"
+      ]
+    },
+    "minHeight": {
+      "type": "number",
+      "default": 480
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ],
+    "alignWide": false
+  }
+}

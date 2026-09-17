@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/cta-section",
+  "version": "1.0.0",
+  "title": "CTA Section",
+  "category": "maverick",
+  "icon": "megaphone",
+  "description": "Full-width navy gradient CTA with headline, body, two buttons, and a phone number.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Ready When You Are"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Let's Build Something That Wins."
+    },
+    "body": {
+      "type": "string",
+      "default": "If your campaign, cause, or organization is facing a moment that matters — we'd like to help."
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Partner With Us →"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "phone": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  }
+}

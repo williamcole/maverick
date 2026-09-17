@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/media-kit-row",
+  "version": "1.0.0",
+  "title": "Media Kit Row",
+  "category": "maverick",
+  "icon": "media-default",
+  "description": "A single downloadable media kit asset row — label, file type/size, and a download link.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Asset name"
+    },
+    "meta": {
+      "type": "string",
+      "default": "PDF · 2 MB"
+    },
+    "fileUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

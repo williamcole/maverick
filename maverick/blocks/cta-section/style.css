@@ -1,0 +1,91 @@
+.maverick-cta-section {
+  background: linear-gradient(135deg, #13294B 0%, #0a1429 100%);
+  padding: 0;
+}
+.mcs-inner {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 100px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.mcs-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #BA912E !important;
+  margin: 0 0 20px;
+}
+.mcs-eyebrow::before {
+  /* Decorative star rendered via CSS so no multibyte character lives in the
+     block content/attributes (a raw ★ there could pick up a stray escape
+     slash when WordPress re-saves the block). */
+  content: "\2605\00a0";
+}
+.mcs-heading {
+  font-size: 76px;
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: #fff !important;
+  margin: 0;
+}
+.mcs-heading em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.mcs-body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.7) !important;
+  max-width: 320px;
+  margin: 0 0 28px;
+}
+.mcs-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.mcs-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mcs-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.mcs-btn--primary  { background: #fff; color: #13294B; }
+.mcs-btn--secondary {
+  background: transparent;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.mcs-phone {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55) !important;
+  margin: 0;
+}
+.mcs-phone a { text-decoration: none; }
+.mcs-phone strong { color: #BA912E !important; }
+
+@media (max-width: 900px) {
+  .mcs-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 32px;
+    gap: 40px;
+  }
+  .mcs-heading { font-size: 48px; }
+}

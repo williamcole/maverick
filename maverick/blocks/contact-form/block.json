@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/contact-form",
+  "version": "1.0.0",
+  "title": "Contact Form",
+  "category": "maverick",
+  "icon": "email-alt",
+  "description": "The main inquiry form card — name, organization, email, phone, org type, and message. Posts to a WordPress handler by default, or a custom CRM URL set per-instance.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Send Inquiry"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Tell us about the work."
+    },
+    "subheading": {
+      "type": "string",
+      "default": "A few details to get the right person on the reply."
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Send Inquiry →"
+    },
+    "formAction": {
+      "type": "string",
+      "default": ""
+    },
+    "privacyUrl": {
+      "type": "string",
+      "default": "/privacy"
+    },
+    "contactEmail": {
+      "type": "string",
+      "default": "contact@maverickpolitical.com"
+    },
+    "notifyEmail": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

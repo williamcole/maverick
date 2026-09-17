@@ -1,0 +1,65 @@
+.maverick-faq-item {
+  border-top: 1px solid #e5e3dc;
+  padding: 20px 0;
+  transition: background 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  color: #13294B;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+}
+.maverick-faq-item summary::-webkit-details-marker { display: none; }
+.maverick-faq-item summary::after {
+  content: '+';
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f5f1e8;
+  color: #BA912E !important;
+  font-size: 18px;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-faq-item[open] summary::after {
+  transform: rotate(45deg);
+  background: #BA912E;
+  color: #ffffff !important;
+}
+.maverick-faq-item .mfi-answer-wrap {
+  display: grid !important; /* override native <details> display:none when closed */
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-faq-item[open] .mfi-answer-wrap {
+  grid-template-rows: 1fr;
+}
+.maverick-faq-item .mfi-answer {
+  overflow: hidden;
+  min-height: 0;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 720px;
+}
+.maverick-faq-item[open] .mfi-answer {
+  margin-top: 14px;
+}
+
+/* Wrapper-level bottom border, same pattern as press-table — avoids
+   relying on :last-child across separate block instances. */
+.faq-list {
+  border-bottom: 1px solid #e5e3dc;
+  max-width: 880px;
+  margin: 0 auto;
+}
