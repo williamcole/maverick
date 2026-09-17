@@ -1,0 +1,168 @@
+.maverick-service-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 36px 32px 34px;
+  border: 1px solid #e5e3dc;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-service-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #BA912E;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.08);
+  border-color: #BA912E !important;
+}
+.maverick-service-card:hover::before {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.msvc-icon {
+  width: 52px;
+  height: 52px;
+  background: #f5f1e8;
+  color: #BA912E !important;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  transition: background 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.msvc-icon svg { width: 26px; height: 26px; display: block; }
+.maverick-service-card:hover .msvc-icon {
+  background: #BA912E;
+  color: #ffffff !important;
+}
+.msvc-title {
+  font-size: 20px;
+  color: #13294B;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.msvc-desc {
+  color: #4a4a4a;
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.msvc-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.msvc-features li {
+  font-size: 12.5px;
+  color: #8a8a8a;
+  padding: 4px 0;
+  position: relative;
+}
+/* Divider drawn as a half-width pseudo-element rather than a full border, so it
+   reads as a subtle tick between rows instead of a rule across the whole card.
+   Only between items — the first row has nothing above it. */
+.msvc-features li + li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 1px;
+  background: #e5e3dc;
+}
+/* Narrow cards: let it span the full row, where a short line looks stranded. */
+@media (max-width: 600px) {
+  .msvc-features li + li::after { width: 100%; }
+}
+.msvc-features li::before {
+  content: '\2022';   /* • dot bullet */
+  color: #BA912E !important;
+  margin-right: 8px;
+}
+
+/* ─────── Editor-only: inline feature-list editing ─────── */
+/* These classes are emitted solely by the block's edit() component, never by
+   render.php, so they are inert on the frontend even though this stylesheet
+   loads in both places. */
+.msvc-features li.msvc-feature-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.msvc-feature-text {
+  flex: 1;
+  min-width: 0;
+}
+.msvc-feature-remove.msvc-feature-remove {
+  flex: 0 0 auto;
+  height: auto;
+  min-width: 0;
+  padding: 0 4px;
+  font-size: 11px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+/* Reveal the remove control only when the row is hovered or focused, so the
+   editing affordance doesn't clutter the card at rest. */
+.msvc-feature-edit:hover .msvc-feature-remove,
+.msvc-feature-edit:focus-within .msvc-feature-remove {
+  opacity: 1;
+}
+.msvc-feature-add.msvc-feature-add {
+  margin-top: 10px;
+  font-size: 11px;
+  height: auto;
+  padding: 4px 10px;
+}
+
+/* ─────── Custom (media library) icons ─────── */
+/* When a client uploads their own icon the tinted square background is dropped
+   — their artwork carries its own background — and the image fills the slot.
+   If an "active" version is supplied it cross-fades in on hover, matching the
+   two-state icon sets exported from Illustrator. */
+.msvc-icon--image {
+  background: none;
+  border-radius: 0;
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+.msvc-icon--image .msvc-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.msvc-icon--image .msvc-icon-img--active {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s cubic-bezier(.22,1,.36,1);
+}
+/* The active image sits on top, so fading it in is enough — no need to fade the
+   default out. When no active image was supplied nothing changes on hover. */
+.maverick-service-card:hover .msvc-icon-img--active { opacity: 1; }
+
+/* The preset-icon hover treatment (gold fill, white glyph) must not repaint a
+   custom icon's slot; this outranks it on specificity. */
+.maverick-service-card:hover .msvc-icon.msvc-icon--image {
+  background: none;
+  color: inherit !important;
+}

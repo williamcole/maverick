@@ -1,0 +1,40 @@
+.maverick-office-card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e3dc;
+  border-radius: 12px;
+  padding: 32px 28px 30px;
+}
+.moc-city {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  color: #BA912E !important;
+  font-size: 24px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.moc-label {
+  font-size: 17px;
+  color: #13294B;
+  margin: 0 0 8px;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+.moc-address {
+  color: #4a4a4a;
+  font-size: 13.5px;
+  font-style: normal;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  display: block;
+}
+.moc-tel {
+  color: #BA912E !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.moc-tel:hover { color: #13294B; }

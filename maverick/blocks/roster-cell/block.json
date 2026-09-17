@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/roster-cell",
+  "version": "1.0.0",
+  "title": "Roster Cell",
+  "category": "maverick",
+  "icon": "id",
+  "description": "A compact name + role pair for a wider-team roster grid. Stack several inside a group with class \"roster-grid\" to build a full team listing.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Full Name"
+    },
+    "role": {
+      "type": "string",
+      "default": "Job Title · Department"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

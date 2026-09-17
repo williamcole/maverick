@@ -1,0 +1,72 @@
+.maverick-pillar-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e3dc;
+  border-radius: 14px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.08);
+  border-color: #BA912E !important;
+}
+.mpl-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #BA912E !important;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.mpl-title {
+  font-size: 22px;
+  color: #13294B;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.mpl-desc {
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.65;
+  flex: 1;
+  margin: 0 0 18px;
+}
+.mpl-link {
+  color: #13294B;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: gap 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.mpl-arrow {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #13294B;
+  color: #ffffff !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), background 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-pillar-card:hover .mpl-link {
+  color: #BA912E !important;
+  gap: 14px;
+}
+.maverick-pillar-card:hover .mpl-arrow {
+  background: #BA912E;
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/stats-strip",
+  "version": "1.0.0",
+  "title": "Stats Strip",
+  "category": "maverick",
+  "icon": "chart-bar",
+  "description": "A navy bar showing 1–6 key statistics with large numbers and labels.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "stats": {
+      "type": "array",
+      "default": [
+        {
+          "number": "200",
+          "suffix": "+",
+          "label": "Campaigns Served"
+        },
+        {
+          "number": "$840",
+          "suffix": "M",
+          "label": "Dollars Raised"
+        },
+        {
+          "number": "12",
+          "suffix": "M",
+          "label": "Donors Mobilized"
+        },
+        {
+          "number": "87",
+          "suffix": "%",
+          "label": "Client Win Rate"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full",
+      "wide"
+    ]
+  }
+}

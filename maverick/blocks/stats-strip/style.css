@@ -1,0 +1,44 @@
+.maverick-stats-strip {
+  background: #13294B;
+  border-top: 1px solid #243a5e;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax( 160px, 1fr ) );
+  gap: 0;
+  padding: 36px 40px;
+}
+.mss-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 24px;
+  border-right: 1px solid #243a5e;
+}
+.mss-stat:first-child { padding-left: 0; }
+.mss-stat:last-child  { border-right: none; }
+.mss-number {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff !important;
+}
+.mss-suffix { color: #BA912E !important; }
+.mss-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7) !important;
+}
+
+@media (max-width: 640px) {
+  .maverick-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 40px 24px;
+  }
+  .mss-stat {
+    padding: 0;
+    border-right: none;
+  }
+}

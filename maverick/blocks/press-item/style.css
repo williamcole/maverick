@@ -1,0 +1,92 @@
+/* ─────── Coverage row variant ─────── */
+.maverick-press-item.is-coverage {
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid #e5e3dc;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-press-item.is-coverage:hover {
+  padding-left: 6px;
+}
+.maverick-press-item.is-coverage .mpi-date {
+  color: #8a8a8a;
+  font-size: 12.5px;
+  width: 90px;
+  flex-shrink: 0;
+}
+.maverick-press-item.is-coverage .mpi-body { flex: 1; }
+.maverick-press-item.is-coverage .mpi-title {
+  color: #13294B;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.maverick-press-item.is-coverage .mpi-outlet {
+  color: #8a8a8a;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.maverick-press-item.is-coverage .mpi-link {
+  color: #BA912E !important;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* ─────── Release card variant ─────── */
+.maverick-press-item.is-release {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e5e3dc;
+  border-radius: 12px;
+  padding: 26px 26px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.maverick-press-item.is-release:hover {
+  transform: translateY(-3px);
+  border-color: #BA912E !important;
+}
+.maverick-press-item.is-release .mpi-date {
+  color: #BA912E !important;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.maverick-press-item.is-release .mpi-body { margin-bottom: 14px; }
+.maverick-press-item.is-release .mpi-title {
+  display: block;
+  color: #13294B;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.maverick-press-item.is-release .mpi-excerpt {
+  color: #4a4a4a;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+.maverick-press-item.is-release .mpi-link {
+  color: #BA912E !important;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: 14px;
+}

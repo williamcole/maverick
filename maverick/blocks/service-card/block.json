@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/service-card",
+  "version": "1.0.0",
+  "title": "Service Card",
+  "category": "maverick",
+  "icon": "screenoptions",
+  "description": "A service/discipline card with icon, title, description, and a short feature list. Used in the Services page grid.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "strategy",
+      "enum": [
+        "strategy",
+        "mail",
+        "ad",
+        "chart",
+        "magnet",
+        "pen"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": "Service title."
+    },
+    "description": {
+      "type": "string",
+      "default": "Short description of this service."
+    },
+    "features": {
+      "type": "array",
+      "default": [
+        "Feature one",
+        "Feature two",
+        "Feature three",
+        "Feature four"
+      ]
+    },
+    "iconImageId": {
+      "type": "number"
+    },
+    "iconImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "iconImageActiveId": {
+      "type": "number"
+    },
+    "iconImageActiveUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "iconImageAlt": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

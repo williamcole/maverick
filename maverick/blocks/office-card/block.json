@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "maverick/office-card",
+  "version": "1.0.0",
+  "title": "Office Card",
+  "category": "maverick",
+  "icon": "building",
+  "description": "A company office/location card with city, label, address, and phone number.",
+  "textdomain": "maverick-blocks",
+  "editorScript": "file:./build/index.js",
+  "style": "file:./build/style-index.css",
+  "editorStyle": "file:./build/style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "city": {
+      "type": "string",
+      "default": "City"
+    },
+    "label": {
+      "type": "string",
+      "default": "Office"
+    },
+    "addressLine1": {
+      "type": "string",
+      "default": "Street address"
+    },
+    "addressLine2": {
+      "type": "string",
+      "default": "City, State ZIP"
+    },
+    "phone": {
+      "type": "string",
+      "default": "(000) 000-0000"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}
